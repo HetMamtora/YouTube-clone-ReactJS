@@ -1,5 +1,4 @@
 export const convertRawtoString = (labelValue, isSub=false) => {
-    console.log(labelValue)
 
     const num = Math.abs(Number(labelValue));
 
