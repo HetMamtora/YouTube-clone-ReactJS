@@ -2,11 +2,11 @@ import {createSlice} from '@reduxjs/toolkit';
 import { getHomePageVideos } from '../../store/reducers/getHomePageVideos';
 
 const initialState = {
-    video: [],
+    videos: [],
     currentPlaying: null,
     searchTerm:" ",
     searchResults: [],
-    nextPageToker: null,
+    nextPageToken: null,
     recommendedVideo:[]
 };
 
@@ -18,7 +18,11 @@ const youtubeSlice = createSlice({
 
     extraReducers:(builder) => {
         builder.addCase(getHomePageVideos.fulfilled,(state,action)=>{
-            
+            //updating old videos state by state
+            if(action.payload && action.payload.parsedData){
+                state.videos = action.payload.parsedData;
+                state.nextPageToken = action.payload.nextPageToken;
+            }
         })
     }
 })
