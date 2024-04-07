@@ -42,9 +42,10 @@ const navigate = useNavigate();
           next={()=> dispatch(getSearchPageVideos(true))}
           hasMore={videos.length < 500}
           loader={<Spinner/>}
-          height={1000}
+          height={900}
           >
-              {videos.map((item) => {
+              
+                {videos.map((item) => {
                   return (
                     <div className='my-5'>
                   <SearchCard data={item} key={item.videoId}/>
