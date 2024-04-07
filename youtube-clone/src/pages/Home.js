@@ -34,7 +34,7 @@ const Home = () => {
           next={()=> dispatch(getHomePageVideos(true))}
           hasMore={videos.length<500}
           loader={<Spinner/>}
-          height={650}
+          height={1000}
           >
               <div className='grid gap-y-14 gap-x-8 grid-cols-4 p-8'>
                 {videos.map((item) => {
