@@ -11,13 +11,8 @@ export default function Watch() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const currentPlaying = useAppSelector(
-  (state) => state,youtubeApp,currentPlaying
-  );
-
-  const recommendedVideo = useAppSelector(
-    (state) => state.youtubeApp.recommendedVideo
-  );
+  const currentPlaying = useAppSelector((state) => state.youtubeApp.currentPlaying) || {};
+  const recommendedVideo = useAppSelector((state) => state.youtubeApp.recommendedVideo) || {};
 
   useEffect(() => {
     if(id){
@@ -44,18 +39,20 @@ export default function Watch() {
           <div>
             <div>
               <div>
-                <div>
+                <div className='ml-10 mt-10'>
                   <iframe src={`https://www.youtube.com/embed/${id}?autoplay=1`}
                   frameBorder="0"
                   width="800"
                   height="502"
                   allowFullScreen
-                  title="Youtube Player">
+                  title="Youtube Player"
+                  >
                   </iframe>
                 </div>
               </div>
             </div>
           </div>
+          
         </div>
       )}
     </>
