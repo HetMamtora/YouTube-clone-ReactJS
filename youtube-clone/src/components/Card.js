@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Card({data}) {
 
@@ -8,8 +9,10 @@ export default function Card({data}) {
                 <span className='absolute bottom-3 right-3 text-sm bg-gray-900 px-2 py-0.5 z-10'>
                     {data.videoDuration}
                 </span>
-                
-                <img src={data.videoThumbnail} alt='thumbnail' className='h-44 w-full object-cover'/>
+                <Link to = {`/watch/${data.videoId}`}>
+                    <img src={data.videoThumbnail} alt='Thumbnail'className='h-44 w-72'/>
+                </Link>
+                {/* <img src={data.videoThumbnail} alt='thumbnail' className='h-44 w-full object-cover'/> */}
             </div>
             
             <div className='flex gap-2 mt-2'>

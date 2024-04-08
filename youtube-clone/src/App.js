@@ -3,6 +3,7 @@ import './App.css'
 import Home from './pages/Home'
 import { BrowserRouter, Routes ,Route} from 'react-router-dom'
 import Search from './pages/Search'
+import Watch from './pages/Watch'
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/search' element={<Search/>}/>
+          <Route path='/watch/:id' element={<Watch/>}/>
         </Routes>
       </BrowserRouter>
     </div>
