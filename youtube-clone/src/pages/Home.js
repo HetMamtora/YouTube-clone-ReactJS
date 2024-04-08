@@ -15,17 +15,15 @@ const Home = () => {
   
   useEffect(() => {
     dispatch(getHomePageVideos(false));
-    //console.log(videos);
   },[dispatch])
 
-  // console.log(videos);
   return (
     <div className='max-h-screen overflow-auto'>
       <div style={{height:"7.5vh"}}>
         <Navbar />
       </div>
 
-      <div className='flex' style={{height:"92.5vh"}}>
+      <div className='flex' style={{height:"92.5vh", left:"4rem"}}>
         <Sidebar />
         {
         videos.length ? (

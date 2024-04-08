@@ -41,7 +41,7 @@ const Sidebar = () => {
     ]
 
   return (
-    <div className='w-2/12 bg-[#212121] p-2 pr-5 overflow-auto pb-8 h-screen'>
+    <div className='w-3/12 bg-[#212121] p-2 pr-5 overflow-auto pb-8 h-screen'>
 
         {/*primary Links*/}
         <ul className='flex flex-col border-b-2 border-gray-700'>
