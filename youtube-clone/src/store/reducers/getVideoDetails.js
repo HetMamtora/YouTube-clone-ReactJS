@@ -19,32 +19,33 @@ export const getVideoDetails = createAsyncThunk(
 );
 
 const parseData = async(item) =>{
-  const channelResponse = await axios.get(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=${item.snippet.channelId}&key=${API_KEY}`)
-const snippet = item.snippet;
-const id= item.id;
-const statistics = item.statistics;
+    
+    const channelResponse = await axios.get(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=${item.snippet.channelId}&key=${API_KEY}`)
+    const snippet = item.snippet;
+    const id= item.id;
+    const statistics = item.statistics;
 
-const channelImage = channelResponse.data.items[0].snippet.thumbnails.default.url;
-const subscriberCount = channelResponse.data.items[0].statistics.subscriberCount;
+    const channelImage = channelResponse.data.items[0].snippet.thumbnails.default.url;
+    const subscriberCount = channelResponse.data.items[0].statistics.subscriberCount;
 
-
-return {
-    videoId : id,
+    return {
+        videoId : id,
         videoTitle: snippet.title,
         videoDescription:snippet.description,
         videoViews:convertRawtoString(
-          statistics.viewCount
+            statistics.viewCount
         ),
         videoLikes:convertRawtoString(
-          statistics.likeCount
+            statistics.likeCount
         ),
-        videoAge:timeSince(new Date(snippet.publishedAt)
+        videoAge:timeSince(
+            new Date(snippet.publishedAt)
         ),
         channelInfo:{
-          id:snippet.channelId,
-          image:channelImage,
-          name:snippet.channelTitle,
-          subscribers:convertRawtoString(subscriberCount,true),
-}
-}
+            id:snippet.channelId,
+            image:channelImage,
+            name:snippet.channelTitle,
+            subscribers:convertRawtoString(subscriberCount,true),
+        }
+    }
 }
