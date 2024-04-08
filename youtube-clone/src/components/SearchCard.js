@@ -22,7 +22,7 @@ export default function SearchCard({data}) {
             <div className='text-xs text-gray-400'>
                 <div>
                     <div>
-                    <span className="after:contents-['•'] after:mx-1">
+                        <span className="after:contents-['•'] after:mx-1">
                             {data.videoViews} views
                         </span>
                         <span>
@@ -41,9 +41,8 @@ export default function SearchCard({data}) {
             </div>
             <div>
                 <div className='max-w-2xl line-clamp-2 text-sm text-gray-400'>
-                <p>{data.videoDescription}</p>
+                    <p>{data.videoDescription}</p>
                 </div>
-                
             </div>
         </div>
     </div>

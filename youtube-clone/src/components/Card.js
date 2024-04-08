@@ -10,14 +10,13 @@ export default function Card({data}) {
                     {data.videoDuration}
                 </span>
                 <Link to = {`/watch/${data.videoId}`}>
-                    <img src={data.videoThumbnail} alt='Thumbnail'className='h-44 w-72'/>
+                    <img src={data.videoThumbnail} alt='Thumbnail'className='h-50 w-full object-cover'/>
                 </Link>
-                {/* <img src={data.videoThumbnail} alt='thumbnail' className='h-44 w-full object-cover'/> */}
             </div>
             
             <div className='flex gap-2 mt-2'>
                 <div className='min-w-fit'>
-                    <a href='#'><img src={data.channelInfo.image} alt='channel image' className='h-9 w-9 rounded-full'/></a>
+                    <a href='#'><img src={data.channelInfo.image} alt='channel' className='h-9 w-9 rounded-full'/></a>
                 </div>
                 <div>
                     <h3> <a href='#' className='line-clamp-2'>{data.videoTitle}</a> </h3>

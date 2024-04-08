@@ -50,7 +50,7 @@ const Navbar = () => {
         >
           <div className="flex bg-zinc-900 items-center h-10 px-4 pr-0 rounded-3xl">
             <div className="flex gap-5 items-center pr-5">
-              <input type="text" placeholder="Search"
+              <input type="text" placeholder="Search..."
                 className="w-96 bg-zinc-900 focus:outline-none border-none"
                 value={searchTerm}
                 onChange={e=>dispatch(changeSearchTerm(e.target.value))}

@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../hooks/useApp";
 import { getVideoDetails } from "../store/reducers/getVideoDetails";
-import { getRecommendedVideos } from "../store/reducers/getRecommendedVideos";
 import Navbar from "../components/Navbar";
 
 export default function Watch() {
@@ -12,7 +11,6 @@ export default function Watch() {
   const navigate = useNavigate();
 
   const currentPlaying = useAppSelector((state) => state.youtubeApp.currentPlaying) || {};
-  const recommendedVideo = useAppSelector((state) => state.youtubeApp.recommendedVideo) || {};
 
   useEffect(() => {
     if(id){
@@ -22,12 +20,6 @@ export default function Watch() {
       navigate("/");
     }
   },[id,navigate,dispatch]);
-
-  useEffect(() => {
-    if(currentPlaying && id){
-      dispatch(getRecommendedVideos(id))
-    }
-  },[currentPlaying,dispatch,id]);
 
   return (
     <>
@@ -52,7 +44,6 @@ export default function Watch() {
               </div>
             </div>
           </div>
-          
         </div>
       )}
     </>
